@@ -28,25 +28,13 @@ public class ClientHandler implements Runnable {
     }
 
     public void run() {
-        String message = "";
-        System.out.println("Un nouveau client s'est connecte, no " + numClient);
         try {
-            char[] charCur = new char[1];
-            while (in.read(charCur, 0, 1) != -1) {
-                if (charCur[0] != '\u0000' && charCur[0] != '\n' && charCur[0] != '\r')
-                    message += charCur[0];
-                else if (!message.equalsIgnoreCase("")) {
-                    if (charCur[0] == '\u0000')
-
-                        projetReseaux.sendAll(message, "" + charCur[0]);
-                    else projetReseaux.sendAll(message, "");
-                    message = "";
-                }
-            }
+            in.lines().forEach(line -> {
+                System.out.println( "Ligne = " + line);
+            });
         } catch (Exception e) {
         } finally {
             try {
-                System.out.println("Le client no " + numClient + " s'est deconnecte");
                 projetReseaux.delClient(numClient);
                 s.close();
             } catch (IOException e) {
