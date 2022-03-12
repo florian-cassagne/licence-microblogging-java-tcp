@@ -3,41 +3,66 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClientHandler implements Runnable {
-    private final Thread t;
-    private final Socket s;
-    private PrintWriter out;
-    private BufferedReader in;
-    private final ProjetReseaux projetReseaux;
-    private int numClient = 0;
+    private final Socket clientSocket;
 
-    ClientHandler(Socket s, ProjetReseaux projetReseaux) {
-        this.projetReseaux = projetReseaux;
-        this.s = s;
-        try {
-            out = new PrintWriter(s.getOutputStream());
-            in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            this.numClient = projetReseaux.addClient(out);
-        } catch (IOException e) {
-            System.out.println("Erreur ClientHandler : " + e.getMessage());
-        }
-
-        this.t = new Thread(this);
-        this.t.start();
+    // Constructor
+    public ClientHandler(Socket socket) {
+        this.clientSocket = socket;
     }
 
     public void run() {
+        PrintWriter out = null;
+        BufferedReader in = null;
         try {
-            in.lines().forEach(line -> {
-                System.out.println( "Ligne = " + line);
-            });
-        } catch (Exception e) {
+
+            // get the outputstream of client
+            out = new PrintWriter(
+                    clientSocket.getOutputStream(), true);
+
+            // get the inputstream of client
+            in = new BufferedReader(
+                    new InputStreamReader(
+                            clientSocket.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+
+                String[] request = line.split("\\\\r\\\\n");
+                if (request.length == 2) {
+                    String commandNonSplitted = request[0];
+                    String content = request[1];
+                    String[] command = commandNonSplitted.split("\\s+");
+                    if (command[0].equalsIgnoreCase("PUBLISH") && content.length() != 0) {
+                        if (command.length == 2) {
+                            String author = command[1].replaceAll("author:@", "");
+                            out.println("PUBLISH de la part de @" + author + " : " + content);
+                        } else {
+                            out.println("Commande ou paramètres malformées");
+                        }
+                    }
+                } else {
+
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
             try {
-                projetReseaux.delClient(numClient);
-                s.close();
+                if (out != null) {
+                    System.out.println("out != null");
+                    out.close();
+                }
+                if (in != null) {
+                    System.out.println("in != null");
+                    in.close();
+                    clientSocket.close();
+                }
             } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

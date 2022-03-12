@@ -1,3 +1,5 @@
+package clients;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,12 +7,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-// Client class
-public class Client {
-
+public class publisher {
     // driver code
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // establish a connection by providing host and port
         // number
         try (Socket socket = new Socket("localhost", 1234)) {
@@ -28,24 +27,22 @@ public class Client {
             Scanner sc = new Scanner(System.in);
             String line = null;
 
-            while (!"exit".equalsIgnoreCase(line)) {
+            System.out.print("Entrez un pseudo : ");
 
-                // reading from user
+            String user = sc.nextLine();
+
+            System.out.println("Maintenant envoyez des messages, écrire STOP fermera le client");
+            while (!"stop".equalsIgnoreCase(line)) {
                 line = sc.nextLine();
-
-                // sending the user input to server
-                out.println(line);
+                out.println("PUBLISH author:@" + user + "\\r\\n" + line );
                 out.flush();
-
-                // displaying server reply
                 System.out.println("Server replied "
                         + in.readLine());
             }
 
             // closing the scanner object
             sc.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

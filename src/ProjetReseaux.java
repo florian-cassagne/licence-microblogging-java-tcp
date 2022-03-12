@@ -1,41 +1,57 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Vector;
 
 public class ProjetReseaux {
-    private final Vector<PrintWriter> tabClients = new Vector<PrintWriter>();
-    private int nbClients = 0;
-    private static final int port = 14000;
+    public static void main(String[] args)
+    {
+        ServerSocket server = null;
 
-
-    public static void main(String[] args) {
-        ProjetReseaux projetReseaux = new ProjetReseaux();
         try {
 
-            ServerSocket ss = new ServerSocket(port);
+            // server is listening on port 1234
+            server = new ServerSocket(1234);
+            server.setReuseAddress(true);
+
+            // running infinite loop for getting
+            // client request
             while (true) {
-                new ClientHandler(ss.accept(), projetReseaux);
+
+                // socket object to receive incoming client
+                // requests
+                Socket client = server.accept();
+
+                // Displaying that new client is connected
+                // to server
+                System.out.println("New client connected"
+                        + client.getInetAddress()
+                        .getHostAddress());
+
+                // create a new thread object
+                ClientHandler clientSock
+                        = new ClientHandler(client);
+
+                // This thread will handle the client
+                // separately
+                new Thread(clientSock).start();
             }
-        } catch (Exception e) {
-            System.out.println("Erreur ProjetReseaux : " + e.getMessage());
         }
-    }
-
-    synchronized public void delClient(int i) {
-        nbClients--;
-        if (tabClients.elementAt(i) != null) {
-            tabClients.removeElementAt(i);
+        catch (IOException e) {
+            e.printStackTrace();
         }
-    }
-
-
-    synchronized public int addClient(PrintWriter out) {
-        nbClients++;
-        tabClients.addElement(out);
-        return tabClients.size() - 1;
-    }
-
-    synchronized public int getNbClients() {
-        return nbClients;
+        finally {
+            if (server != null) {
+                try {
+                    server.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
