@@ -1,13 +1,9 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Vector;
 
 public class ProjetReseaux {
-    public static void main(String[] args)
+    public void main(String[] args)
     {
         ServerSocket server = null;
 
@@ -32,8 +28,8 @@ public class ProjetReseaux {
                         .getHostAddress());
 
                 // create a new thread object
-                ClientHandler clientSock
-                        = new ClientHandler(client);
+                Server clientSock
+                        = new Server(client, this);
 
                 // This thread will handle the client
                 // separately
