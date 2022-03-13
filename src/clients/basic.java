@@ -7,7 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class publisher {
+public class basic {
+
     public static void main(String[] args) {
         try (Socket socket = new Socket("localhost", 12345)) {
             PrintWriter out = new PrintWriter(
@@ -17,14 +18,10 @@ public class publisher {
                     socket.getInputStream()));
             Scanner scanner = new Scanner(System.in);
             String line = null;
-            System.out.print("Entrez un pseudo : ");
 
-            String user = scanner.nextLine();
-
-            System.out.println("Maintenant envoyez des messages, écrire STOP fermera le client");
             while (!"stop".equalsIgnoreCase(line)) {
                 line = scanner.nextLine();
-                out.println("PUBLISH author:@" + user + "\\r\\n" + line);
+                out.println(line);
                 out.flush();
                 System.out.println(in.readLine());
             }
@@ -34,5 +31,3 @@ public class publisher {
         }
     }
 }
-
-
