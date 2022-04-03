@@ -12,9 +12,27 @@ public class Message implements Comparable<Message> {
         return author;
     }
 
+    public void setRepublished(boolean republished) {
+        this.republished = republished;
+    }
+
+    private boolean republished;
     private final String author;
     private Date createdOn;
 
+    public boolean isRepublished() {
+        return republished;
+    }
+
+    public Message getReply_to() {
+        return reply_to;
+    }
+
+    public void setReply_to(Message reply_to) {
+        this.reply_to = reply_to;
+    }
+
+    private Message reply_to;
     public String getTag() {
         return tag;
     }
@@ -29,6 +47,8 @@ public class Message implements Comparable<Message> {
         this.id = id;
         this.content = content;
         this.author = author;
+        this.republished = false;
+        this.reply_to = null;
         this.createdOn = createdOn;
         Pattern p = Pattern.compile("(#\\S+)");
         Matcher m = p.matcher(content);
