@@ -21,9 +21,6 @@ public class ProjetReseaux {
         return messages;
     }
 
-    // Test --------
-    // Another test to see if Git works
-
     public static void addMessage(Message message){
         messages.add(message);
     }
