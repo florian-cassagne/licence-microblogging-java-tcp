@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee47dc91-86c1-4b50-80fe-bd0faa244e72" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProjetReseaux.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjetReseaux.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/microblogamu_central.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clients/basic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clients/basic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clients/repost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clients/microblogamu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +21,9 @@
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="028c6d88-7491-4d57-ae75-751c0bd59624" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -138,6 +137,7 @@
       <workItem from="1647089804390" duration="16925000" />
       <workItem from="1648825556878" duration="15915000" />
       <workItem from="1649022530509" duration="20874000" />
+      <workItem from="1649358612825" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1647006880604</created>

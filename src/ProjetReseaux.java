@@ -20,6 +20,9 @@ public class ProjetReseaux {
         Collections.sort(messages);
         return messages;
     }
+
+    // Test --------
+
     public static void addMessage(Message message){
         messages.add(message);
     }
