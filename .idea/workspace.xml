@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee47dc91-86c1-4b50-80fe-bd0faa244e72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/clients/repost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProjetReseaux.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjetReseaux.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structure/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structure/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structure/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structure/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structure/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structure/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structure/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structure/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/microblogamu_central.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clients/basic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clients/basic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clients/repost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clients/microblogamu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,10 +52,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="clients" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.follower">
+  <component name="RunManager" selected="Application.microblogamutest">
     <configuration name="ProjetReseaux" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProjetReseaux" />
       <module name="Projet-Reseaux" />
@@ -66,15 +64,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="basic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="clients.basic" />
+    <configuration name="follower" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clients.follower" />
       <module name="Projet-Reseaux" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clients.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="follower" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="clients.follower" />
+    <configuration name="microblogamu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clients.microblogamu" />
+      <module name="Projet-Reseaux" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clients.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="microblogamutest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clients.microblogamutest" />
       <module name="Projet-Reseaux" />
       <extension name="coverage">
         <pattern>
@@ -101,10 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.microblogamutest" />
+        <item itemvalue="Application.ProjetReseaux" />
+        <item itemvalue="Application.microblogamu" />
         <item itemvalue="Application.follower" />
         <item itemvalue="Application.publisher" />
-        <item itemvalue="Application.ProjetReseaux" />
-        <item itemvalue="Application.basic" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +136,8 @@
       <updated>1647004535453</updated>
       <workItem from="1647004537010" duration="4116000" />
       <workItem from="1647089804390" duration="16925000" />
-      <workItem from="1648825556878" duration="15221000" />
+      <workItem from="1648825556878" duration="15915000" />
+      <workItem from="1649022530509" duration="20874000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1647006880604</created>
@@ -162,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647211964236</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="rendu intermediaire">
+      <created>1649021990060</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1649021990060</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

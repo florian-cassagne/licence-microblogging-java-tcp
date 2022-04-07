@@ -23,7 +23,7 @@ public class basic {
                 line = scanner.nextLine();
                 out.println(line);
                 out.flush();
-                System.out.println(in.readLine());
+                System.out.println(in.read());
             }
             scanner.close();
         } catch (IOException e) {
